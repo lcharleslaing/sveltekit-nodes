@@ -47,9 +47,23 @@
 <ul>
   {#each menu as item}
     <li>
-      <a href={item.link}>{item.title}</a>
+      <span class="title"><a href={item.link}>{item.title}</a></span>
+      <span class="link">{item.link}</span>
     </li>
   {/each}
 </ul>
 
-<slot />
+<!-- <slot /> -->
+<style>
+  ul {
+    margin: 100px;
+  }
+
+  .title a {
+    float: left;
+    text-decoration: none;
+  }
+  .link {
+    float: right;
+  }
+</style>
