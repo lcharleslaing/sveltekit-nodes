@@ -1,6 +1,10 @@
 <script context="module">
   const modules = import.meta.glob("./**.svelte");
 
+  function capitalize(value) {
+    return value.replace(/(?:^|\s|-)\S/g, (x) => x.toUpperCase());
+  }
+
   let body = [];
   for (let path in modules) {
     let pathSanitized = path.replace(".svelte", "").replace("./", "/");
@@ -23,6 +27,8 @@
 
     let title = title4;
     let link = link2;
+
+    title = capitalize(title);
 
     body.push({
       title,
