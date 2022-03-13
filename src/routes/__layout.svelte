@@ -7,11 +7,11 @@
     body.push({
       title: pathSanitized.substring(pathSanitized.lastIndexOf("/") + 1),
       link: pathSanitized.includes("index")
-        ? pathSanitized.replace("index", "")
+        ? pathSanitized.replace("/index", "")
         : pathSanitized,
     });
   }
-
+  console.log(body);
   export const load = async () => {
     const menu = await Promise.all(body);
     return {
